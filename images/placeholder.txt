@@ -1,0 +1,4 @@
+Imagens necessárias (Unsplash):
+- bg-sobre.jpg: Técnico instalando câmera CFTV
+- bg-servicos.jpg: Centro de monitoramento/segurança
+- bg-contato.jpg: Painel de controle de segurança

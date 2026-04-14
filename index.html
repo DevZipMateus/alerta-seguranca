@@ -11,20 +11,20 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://alerta-seguranca.com.br/">
+  <meta property="og:url" content="https://alertaseguranca.floripa.com.br/">
   <meta property="og:title" content="Alerta Segurança — Sistemas de Segurança Eletrônica">
-  <meta property="og:description" content="Soluções profissionais em CFTV, alarmes, controle de acesso e portaria autônoma com excelência técnica.">
-  <meta property="og:image" content="images/og-image.png">
+  <meta property="og:description" content="Soluções profissionais em CFTV, alarmes, controle de acesso e portaria autônoma com excelência técnica em Florianópolis.">
+  <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%230066CC'/><circle cx='100' cy='100' r='70' fill='%2300A651'/><path d='M100 40 L130 60 L130 90 Q100 120 100 120 Q70 90 70 60 Z' fill='%230066CC'/></svg>">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alerta Segurança — Sistemas de Segurança Eletrônica">
-  <meta name="twitter:description" content="Soluções profissionais em segurança eletrônica com excelência técnica.">
-  <meta name="twitter:image" content="images/og-image.png">
+  <meta name="twitter:description" content="Soluções profissionais em segurança eletrônica com excelência técnica em Florianópolis.">
+  <meta name="twitter:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='%230066CC'/><circle cx='100' cy='100' r='70' fill='%2300A651'/><path d='M100 40 L130 60 L130 90 Q100 120 100 120 Q70 90 70 60 Z' fill='%230066CC'/></svg>">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230066CC'/><circle cx='50' cy='50' r='35' fill='%2300A651'/><path d='M50 20 L65 30 L65 45 Q50 60 50 60 Q35 45 35 30 Z' fill='%230066CC'/></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230066CC'/><circle cx='50' cy='50' r='35' fill='%2300A651'/><path d='M50 20 L65 30 L65 45 Q50 60 50 60 Q35 45 35 30 Z' fill='%230066CC'/></svg>">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,12 +105,26 @@
     .logo {
       display: flex;
       align-items: center;
+      justify-content: center;
+      width: 48px;
       height: 48px;
-      transition: opacity var(--tr);
+      background: linear-gradient(135deg, var(--azul) 0%, var(--verde) 100%);
+      border-radius: 8px;
+      position: relative;
+      transition: all var(--tr);
+      font-weight: 800;
+      color: var(--branco);
+      font-size: 1.4rem;
     }
 
-    .logo:hover { opacity: 0.85; }
-    .logo img { height: 100%; width: auto; }
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,102,204,0.25);
+    }
+
+    .logo::before {
+      content: '🔒';
+    }
 
     nav { display: flex; gap: 2px; }
     .nav-links {
@@ -404,7 +418,8 @@
        SOBRE
     ══════════════════════════════════════ */
     #sobre {
-      background: var(--cinza-bg);
+      background: linear-gradient(135deg, rgba(0,166,81,0.05) 0%, rgba(0,102,204,0.05) 100%), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80') center / cover no-repeat;
+      background-attachment: fixed;
     }
 
     .sobre-grid {
@@ -475,7 +490,8 @@
        SERVIÇOS
     ══════════════════════════════════════ */
     #servicos {
-      background: var(--branco);
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.90) 100%), url('https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1200&q=80') center / cover no-repeat;
+      background-attachment: fixed;
     }
 
     .servicos-grid {
@@ -521,7 +537,8 @@
        DEPOIMENTOS
     ══════════════════════════════════════ */
     #depoimentos {
-      background: linear-gradient(135deg, rgba(0,102,204,0.03) 0%, rgba(0,166,81,0.03) 100%);
+      background: linear-gradient(135deg, rgba(248,249,250,0.92) 0%, rgba(248,249,250,0.85) 100%), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80') center / cover no-repeat;
+      background-attachment: fixed;
     }
 
     .depoimentos-grid {
@@ -806,6 +823,12 @@
        RESPONSIVE
     ══════════════════════════════════════ */
     @media (max-width: 1023px) {
+      #sobre,
+      #servicos,
+      #depoimentos {
+        background-attachment: scroll !important;
+      }
+
       .hero-inner {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -897,8 +920,7 @@
 <!-- HEADER -->
 <header id="header" role="banner">
   <div class="container header-inner">
-    <a href="#hero" class="logo" aria-label="Alerta Segurança — página inicial">
-      <img src="images/logo.png" alt="Logo Alerta Segurança">
+    <a href="#hero" class="logo" aria-label="Alerta Segurança — página inicial" title="Alerta Segurança">
     </a>
 
     <nav role="navigation" aria-label="Menu principal">
@@ -1188,7 +1210,7 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="images/logo.png" alt="Logo Alerta Segurança" style="height: 36px; margin-bottom: 12px;">
+        <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--verde) 0%, var(--azul) 100%); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--branco); font-weight: 800; font-size: 1.1rem; margin-bottom: 12px;">🔒</div>
         <p>Soluções em segurança eletrônica com excelência técnica, confiabilidade e inovação para residências e condomínios em Florianópolis.</p>
       </div>
 
