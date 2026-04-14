@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alertaseguranca.com.br/sitemap.xml
