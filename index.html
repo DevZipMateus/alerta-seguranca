@@ -865,22 +865,6 @@
       overflow: hidden;
     }
 
-    /* Linha de scan — tema segurança */
-    @keyframes scanLine {
-      0%   { top: -4px; opacity: 0; }
-      10%  { opacity: 0.8; }
-      90%  { opacity: 0.8; }
-      100% { top: 100%; opacity: 0; }
-    }
-    .hero-visual-box::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent 0%, var(--verde) 30%, var(--azul) 70%, transparent 100%);
-      animation: scanLine 3s ease-in-out infinite;
-      pointer-events: none;
-    }
 
     /* Pulsing ring — botão WhatsApp */
     @keyframes waPulse {
