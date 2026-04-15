@@ -235,7 +235,8 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--branco) 0%, rgba(0,102,204,0.03) 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(0,102,204,0.10) 100%), url('images/bg-1.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
     }
 
     #hero::before {
@@ -418,8 +419,8 @@
        SOBRE
     ══════════════════════════════════════ */
     #sobre {
-      background: linear-gradient(135deg, rgba(0,166,81,0.05) 0%, rgba(0,102,204,0.05) 100%), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80') center / cover no-repeat;
-      background-attachment: fixed;
+      background: linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(0,102,204,0.08) 100%), url('images/bg-2.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
     }
 
     .sobre-grid {
@@ -490,8 +491,8 @@
        SERVIÇOS
     ══════════════════════════════════════ */
     #servicos {
-      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.90) 100%), url('https://images.unsplash.com/photo-1556656793-08538906a9f8?w=1200&q=80') center / cover no-repeat;
-      background-attachment: fixed;
+      background: linear-gradient(135deg, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.88) 100%), url('images/bg-3.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
     }
 
     .servicos-grid {
@@ -537,8 +538,8 @@
        DEPOIMENTOS
     ══════════════════════════════════════ */
     #depoimentos {
-      background: linear-gradient(135deg, rgba(248,249,250,0.92) 0%, rgba(248,249,250,0.85) 100%), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80') center / cover no-repeat;
-      background-attachment: fixed;
+      background: linear-gradient(135deg, rgba(248,249,250,0.92) 0%, rgba(248,249,250,0.85) 100%), url('images/bg-4.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
     }
 
     .depoimentos-grid {
@@ -590,7 +591,8 @@
        CONTATO
     ══════════════════════════════════════ */
     #contato {
-      background: linear-gradient(135deg, var(--azul-dark) 0%, var(--verde-dark) 100%);
+      background: linear-gradient(135deg, rgba(0,75,153,0.88) 0%, rgba(0,107,53,0.88) 100%), url('images/bg-5.jpg') center / cover no-repeat;
+      background-attachment: scroll, fixed;
       color: var(--branco);
     }
 
@@ -823,10 +825,12 @@
        RESPONSIVE
     ══════════════════════════════════════ */
     @media (max-width: 1023px) {
+      #hero,
       #sobre,
       #servicos,
-      #depoimentos {
-        background-attachment: scroll !important;
+      #depoimentos,
+      #contato {
+        background-attachment: scroll, scroll !important;
       }
 
       .hero-inner {
