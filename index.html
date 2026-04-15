@@ -835,10 +835,113 @@
       transform: translateY(28px);
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ══════════════════════════════════════
+       EFEITOS & ANIMAÇÕES
+    ══════════════════════════════════════ */
+
+    /* Float suave — logo hero */
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-14px); }
+    }
+    .hero-visual-box {
+      animation: heroFloat 4s ease-in-out infinite;
+      overflow: hidden;
+    }
+
+    /* Linha de scan — tema segurança */
+    @keyframes scanLine {
+      0%   { top: -4px; opacity: 0; }
+      10%  { opacity: 0.8; }
+      90%  { opacity: 0.8; }
+      100% { top: 100%; opacity: 0; }
+    }
+    .hero-visual-box::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--verde) 30%, var(--azul) 70%, transparent 100%);
+      animation: scanLine 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Pulsing ring — botão WhatsApp */
+    @keyframes waPulse {
+      0%   { box-shadow: 0 0 0 0   rgba(0,166,81,0.55), 0 4px 16px rgba(0,102,204,0.30); }
+      70%  { box-shadow: 0 0 0 14px rgba(0,166,81,0),   0 4px 16px rgba(0,102,204,0.30); }
+      100% { box-shadow: 0 0 0 0   rgba(0,166,81,0),    0 4px 16px rgba(0,102,204,0.30); }
+    }
+    .wa-float { animation: waPulse 2.2s ease-out infinite; }
+
+    /* Ponto pulsante — sec-tag */
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(1);   opacity: 1; }
+      50%      { transform: scale(1.6); opacity: 0.5; }
+    }
+    .sec-tag::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--verde);
+      border-radius: 50%;
+      margin-right: 7px;
+      vertical-align: middle;
+      animation: dotPulse 1.6s ease-in-out infinite;
+    }
+
+    /* Ícone bounce — cards de serviço */
+    @keyframes iconBounce {
+      0%, 100% { transform: translateY(0); }
+      35%      { transform: translateY(-10px); }
+      65%      { transform: translateY(-4px); }
+    }
+    .servico-card:hover .servico-icon {
+      animation: iconBounce 0.55s ease;
+      color: var(--verde);
+    }
+
+    /* Rotação lenta — ícone sobre-visual */
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .sobre-visual i { animation: slowSpin 10s linear infinite; }
+
+    /* Zoom — imagem depoimento */
+    .depoimento-img { transition: transform 0.45s ease; }
+    .depoimento-card:hover .depoimento-img { transform: scale(1.05); }
+
+    /* Shimmer — botão primário */
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    .btn-primary {
+      background-size: 200% auto;
+      background-image: linear-gradient(135deg, var(--verde) 0%, var(--azul) 45%, var(--verde) 90%);
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* Glow ao revelar — hero content */
+    .hero-content.visible {
+      box-shadow: 0 8px 40px rgba(0,102,204,0.10);
     }
 
     /* ══════════════════════════════════════
@@ -1101,7 +1204,7 @@
 <!-- HERO -->
 <section id="hero" aria-label="Apresentação">
   <div class="container hero-inner">
-    <div class="hero-content reveal">
+    <div class="hero-content reveal reveal-left">
       <h1>Alerta Segurança</h1>
       <h2>Padrão de excelência na segurança eletrônica para residências e condomínios em Florianópolis.</h2>
 
@@ -1134,7 +1237,7 @@
       </div>
     </div>
 
-    <div class="hero-visual reveal">
+    <div class="hero-visual reveal reveal-right">
       <div class="hero-visual-box">
         <img src="images/logo.png" alt="Alerta Segurança">
       </div>
@@ -1152,7 +1255,7 @@
     </div>
 
     <div class="sobre-grid">
-      <div class="sobre-content reveal">
+      <div class="sobre-content reveal reveal-left">
         <h3>Nossa trajetória</h3>
         <p>A Alerta Sistemas de Segurança nasceu da experiência acumulada ao longo dos anos no setor de segurança eletrônica. Com atuação prévia em distribuição, monitoramento e até internet via satélite, identificamos um problema recorrente: a baixa qualidade nas instalações e falta de padrão técnico.</p>
         <p>Hoje, atuamos fortemente em manutenção condominial, com foco em segurança eletrônica e soluções de portaria autônoma, destacando-se pelo cuidado nos detalhes e padrão elevado de execução.</p>
@@ -1177,7 +1280,7 @@
         </div>
       </div>
 
-      <div class="sobre-visual reveal">
+      <div class="sobre-visual reveal reveal-right">
         <i class="fas fa-cogs"></i>
       </div>
     </div>
@@ -1420,7 +1523,7 @@
     header.classList.toggle('scrolled', window.scrollY > 30);
   }, { passive: true });
 
-  // Reveal on scroll
+  // Reveal on scroll (normal + direcional)
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1430,11 +1533,29 @@
     });
   }, { threshold: 0.10 });
 
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
 
-  // Stagger effect
-  document.querySelectorAll('.servicos-grid .reveal, .depoimentos-grid .reveal').forEach((el, i) => {
-    el.style.transitionDelay = (i % 3 * 0.12) + 's';
+  // Stagger — cards de serviço
+  document.querySelectorAll('.servicos-grid .reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 3 * 0.13) + 's';
+  });
+
+  // Stagger — sobre-items
+  document.querySelectorAll('.sobre-items .reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.12) + 's';
+  });
+
+  // Stagger — depoimentos
+  document.querySelectorAll('.depoimentos-grid .reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.15) + 's';
+  });
+
+  // Stagger — contato items
+  document.querySelectorAll('.contato-items .contato-item').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-20px)';
+    el.style.transition = `opacity 0.5s ease ${i * 0.10}s, transform 0.5s ease ${i * 0.10}s`;
+    revealObs.observe(el);
   });
 
   // Form submission
