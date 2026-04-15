@@ -1534,12 +1534,22 @@
     el.style.transitionDelay = (i * 0.15) + 's';
   });
 
-  // Stagger — contato items
+  // Stagger — contato items (observer próprio para estilos inline)
+  const contatoObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateX(0)';
+        contatoObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.10 });
+
   document.querySelectorAll('.contato-items .contato-item').forEach((el, i) => {
     el.style.opacity = '0';
     el.style.transform = 'translateX(-20px)';
     el.style.transition = `opacity 0.5s ease ${i * 0.10}s, transform 0.5s ease ${i * 0.10}s`;
-    revealObs.observe(el);
+    contatoObs.observe(el);
   });
 
   // Form submission
