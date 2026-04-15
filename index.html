@@ -944,129 +944,112 @@
       .hero-visual-box { max-width: 440px; }
     }
 
-    /* ── Tablet Landscape / Small Desktop (1024px – 1279px) ── */
+    /* ── Notebook / Small Desktop (1024px – 1279px) ── */
     @media (min-width: 1024px) and (max-width: 1279px) {
-      .hero-inner { gap: 40px; }
+      .hero-inner { gap: 40px; padding: 48px 0; }
       .hero-content { padding: 32px; }
-      .hero-visual-box { max-width: 380px; }
-      .servicos-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .hero-visual-box { max-width: 360px; }
+      .servicos-grid { gap: 20px; }
       .sobre-grid { gap: 40px; }
     }
 
-    /* ── Tablet Portrait (769px – 1023px) ── */
+    /* ── Tablet Landscape (769px – 1023px) ── */
     @media (max-width: 1023px) {
       :root { --header-h: 68px; }
 
-      #hero,
-      #sobre,
-      #servicos,
-      #depoimentos,
-      #contato {
+      /* Desabilitar parallax */
+      #hero, #sobre, #servicos, #depoimentos, #contato {
         background-attachment: scroll, scroll !important;
       }
 
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .hero-content {
-        padding: 32px;
-      }
-
-      .hero-visual {
-        min-height: auto;
-      }
-
-      .hero-visual-box {
-        max-width: 340px;
-        aspect-ratio: auto;
-        padding: 32px;
-      }
-
-      .sobre-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .sobre-items {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      #sobre .sec-header,
-      .sobre-content {
-        padding: 28px;
-      }
-
-      .servicos-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .depoimentos-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contato-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
-    }
-
-    /* ── Mobile Grande / Tablet Pequeno (481px – 768px) ── */
-    @media (max-width: 768px) {
-      :root { --header-h: 64px; }
-
+      /* Nav: esconder links, mostrar hambúrguer */
       .nav-links { display: none; }
       .hamburger { display: flex; }
+
+      /* Hero */
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 48px 0;
+      }
+
+      .hero-content { padding: 32px; }
+
+      .hero-visual { min-height: auto; }
+
+      .hero-visual-box {
+        max-width: 320px;
+        aspect-ratio: auto;
+        padding: 32px;
+        margin: 0 auto;
+      }
+
+      .hero-btns { flex-wrap: wrap; gap: 12px; }
+
+      /* Sobre */
+      .sobre-grid { grid-template-columns: 1fr; gap: 28px; }
+      .sobre-items { grid-template-columns: 1fr 1fr; }
+      .sobre-visual { min-height: 200px; font-size: 4rem; }
+      #sobre .sec-header, .sobre-content { padding: 28px; }
+
+      /* Serviços */
+      .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Depoimentos */
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .depoimento-img { height: 260px; }
+
+      /* Contato */
+      .contato-grid { grid-template-columns: 1fr; gap: 36px; }
+      .contato-form { padding: 28px 24px; }
+
+      /* Footer */
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* ── Tablet Pequeno / Mobile Grande (481px – 768px) ── */
+    @media (max-width: 768px) {
+      :root { --header-h: 64px; }
 
       section { padding: 64px 0; }
 
       .sec-header { margin-bottom: 36px; }
       .sec-header h2 { font-size: 1.8rem; }
+      .sec-header p { font-size: 1rem; }
 
-      .hero-content {
-        padding: 24px;
-      }
-
-      .hero-content h1 { font-size: 2.2rem; }
-      .hero-content h2 { font-size: 1.05rem; }
+      /* Hero */
+      .hero-inner { gap: 24px; padding: 40px 0; }
+      .hero-content { padding: 24px; }
+      .hero-content h1 { font-size: 2.1rem; }
+      .hero-content h2 { font-size: 1rem; }
 
       .hero-visual-box {
-        max-width: 280px;
-        padding: 28px;
-      }
-
-      .hero-btns {
-        flex-direction: column;
-      }
-
-      .hero-btns .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .sobre-items {
-        grid-template-columns: 1fr;
-      }
-
-      #sobre .sec-header,
-      .sobre-content {
+        max-width: 260px;
         padding: 24px;
+        margin: 0 auto;
       }
 
-      .servicos-grid {
-        grid-template-columns: 1fr;
-      }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
 
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
+      /* Sobre */
+      .sobre-items { grid-template-columns: 1fr; }
+      .sobre-visual { min-height: 160px; font-size: 3.5rem; }
+      #sobre .sec-header, .sobre-content { padding: 20px; }
+
+      /* Serviços */
+      .servicos-grid { grid-template-columns: 1fr; }
+      .servico-card { padding: 28px 22px; }
+
+      /* Depoimentos */
+      .depoimento-img { height: 220px; }
+      .depoimento-body { padding: 20px; }
+
+      /* Contato */
+      .contato-form { padding: 24px 20px; }
+
+      /* Footer */
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
     }
 
     /* ── Mobile Médio (361px – 480px) ── */
@@ -1076,36 +1059,40 @@
       .container { padding: 0 16px; }
       section { padding: 52px 0; }
 
-      .sec-header h2 { font-size: 1.6rem; }
-      .sec-header p { font-size: 0.95rem; }
+      .sec-header h2 { font-size: 1.55rem; }
+      .sec-header p { font-size: 0.93rem; }
 
-      .hero-content {
-        padding: 20px;
-      }
-
-      .hero-content h1 { font-size: 1.9rem; }
-      .hero-content h2 { font-size: 0.95rem; }
-
+      /* Hero */
+      .hero-inner { padding: 32px 0; }
+      .hero-content { padding: 18px; }
+      .hero-content h1 { font-size: 1.85rem; }
+      .hero-content h2 { font-size: 0.93rem; }
       .hero-features { gap: 10px; }
-      .hero-feature p { font-size: 0.88rem; }
+      .hero-feature p { font-size: 0.87rem; }
 
       .hero-visual-box {
-        max-width: 240px;
-        padding: 24px;
-      }
-
-      #sobre .sec-header,
-      .sobre-content {
+        max-width: 220px;
         padding: 20px;
+        margin: 0 auto;
       }
 
-      .servico-card { padding: 28px 20px; }
+      /* Sobre */
+      #sobre .sec-header, .sobre-content { padding: 16px; }
+      .sobre-item { padding: 18px; }
 
-      .wa-float {
-        bottom: 16px; right: 16px;
-        width: 50px; height: 50px;
-      }
+      /* Serviços */
+      .servico-card { padding: 24px 16px; }
 
+      /* Depoimentos */
+      .depoimento-img { height: 190px; }
+      .depoimento-body { padding: 16px; }
+
+      /* Contato */
+      .contato-form { padding: 20px 16px; }
+      .contato-items { gap: 18px; }
+
+      /* WhatsApp float */
+      .wa-float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
       .wa-float i { font-size: 1.4rem; }
     }
 
@@ -1116,28 +1103,31 @@
       .container { padding: 0 12px; }
       section { padding: 44px 0; }
 
-      .hero-content {
-        padding: 16px;
-      }
+      .sec-header h2 { font-size: 1.4rem; }
 
+      .hero-inner { padding: 28px 0; }
+      .hero-content { padding: 14px; }
       .hero-content h1 { font-size: 1.6rem; }
       .hero-content h2 { font-size: 0.88rem; }
 
       .hero-visual-box {
-        max-width: 200px;
-        padding: 20px;
-      }
-
-      #sobre .sec-header,
-      .sobre-content {
+        max-width: 190px;
         padding: 16px;
+        margin: 0 auto;
       }
 
-      .btn { padding: 12px 20px; font-size: 0.88rem; }
+      #sobre .sec-header, .sobre-content { padding: 14px; }
+
+      .btn { padding: 12px 18px; font-size: 0.87rem; }
+
+      .depoimento-img { height: 160px; }
+      .depoimento-body { padding: 14px; }
+
+      .contato-form { padding: 16px 14px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal { transition: none; opacity: 1; transform: none; }
+      .reveal, .reveal-left, .reveal-right { transition: none; opacity: 1; transform: none; }
     }
   </style>
 </head>
