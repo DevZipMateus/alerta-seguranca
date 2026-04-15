@@ -844,7 +844,32 @@
     /* ══════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════ */
+
+    /* ── Widescreen / 4K (≥ 1600px) ── */
+    @media (min-width: 1600px) {
+      .container { max-width: 1400px; }
+      .hero-content h1 { font-size: 4rem; }
+      .hero-visual-box { max-width: 560px; }
+    }
+
+    /* ── Full HD / Large Desktop (1280px – 1599px) ── */
+    @media (min-width: 1280px) and (max-width: 1599px) {
+      .hero-visual-box { max-width: 440px; }
+    }
+
+    /* ── Tablet Landscape / Small Desktop (1024px – 1279px) ── */
+    @media (min-width: 1024px) and (max-width: 1279px) {
+      .hero-inner { gap: 40px; }
+      .hero-content { padding: 32px; }
+      .hero-visual-box { max-width: 380px; }
+      .servicos-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .sobre-grid { gap: 40px; }
+    }
+
+    /* ── Tablet Portrait (769px – 1023px) ── */
     @media (max-width: 1023px) {
+      :root { --header-h: 68px; }
+
       #hero,
       #sobre,
       #servicos,
@@ -855,16 +880,35 @@
 
       .hero-inner {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
+      }
+
+      .hero-content {
+        padding: 32px;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .hero-visual-box {
+        max-width: 340px;
+        aspect-ratio: auto;
+        padding: 32px;
       }
 
       .sobre-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
       }
 
       .sobre-items {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #sobre .sec-header,
+      .sobre-content {
+        padding: 28px;
       }
 
       .servicos-grid {
@@ -886,22 +930,28 @@
       }
     }
 
+    /* ── Mobile Grande / Tablet Pequeno (481px – 768px) ── */
     @media (max-width: 768px) {
       :root { --header-h: 64px; }
 
       .nav-links { display: none; }
       .hamburger { display: flex; }
 
-      section { padding: 72px 0; }
-      .sec-header { margin-bottom: 44px; }
+      section { padding: 64px 0; }
 
-      .servicos-grid {
-        grid-template-columns: 1fr;
+      .sec-header { margin-bottom: 36px; }
+      .sec-header h2 { font-size: 1.8rem; }
+
+      .hero-content {
+        padding: 24px;
       }
 
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
+      .hero-content h1 { font-size: 2.2rem; }
+      .hero-content h2 { font-size: 1.05rem; }
+
+      .hero-visual-box {
+        max-width: 280px;
+        padding: 28px;
       }
 
       .hero-btns {
@@ -912,19 +962,57 @@
         width: 100%;
         justify-content: center;
       }
+
+      .sobre-items {
+        grid-template-columns: 1fr;
+      }
+
+      #sobre .sec-header,
+      .sobre-content {
+        padding: 24px;
+      }
+
+      .servicos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
     }
 
+    /* ── Mobile Médio (361px – 480px) ── */
     @media (max-width: 480px) {
       :root { --header-h: 60px; }
 
       .container { padding: 0 16px; }
-      section { padding: 56px 0; }
+      section { padding: 52px 0; }
 
-      #hero h1 { font-size: 2.2rem; }
-      #hero h2 { font-size: 1rem; }
+      .sec-header h2 { font-size: 1.6rem; }
+      .sec-header p { font-size: 0.95rem; }
 
-      .hero-features { gap: 12px; }
-      .hero-feature p { font-size: 0.90rem; }
+      .hero-content {
+        padding: 20px;
+      }
+
+      .hero-content h1 { font-size: 1.9rem; }
+      .hero-content h2 { font-size: 0.95rem; }
+
+      .hero-features { gap: 10px; }
+      .hero-feature p { font-size: 0.88rem; }
+
+      .hero-visual-box {
+        max-width: 240px;
+        padding: 24px;
+      }
+
+      #sobre .sec-header,
+      .sobre-content {
+        padding: 20px;
+      }
+
+      .servico-card { padding: 28px 20px; }
 
       .wa-float {
         bottom: 16px; right: 16px;
@@ -932,6 +1020,33 @@
       }
 
       .wa-float i { font-size: 1.4rem; }
+    }
+
+    /* ── Mobile Pequeno (≤ 360px) ── */
+    @media (max-width: 360px) {
+      :root { --header-h: 56px; }
+
+      .container { padding: 0 12px; }
+      section { padding: 44px 0; }
+
+      .hero-content {
+        padding: 16px;
+      }
+
+      .hero-content h1 { font-size: 1.6rem; }
+      .hero-content h2 { font-size: 0.88rem; }
+
+      .hero-visual-box {
+        max-width: 200px;
+        padding: 20px;
+      }
+
+      #sobre .sec-header,
+      .sobre-content {
+        padding: 16px;
+      }
+
+      .btn { padding: 12px 20px; font-size: 0.88rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
