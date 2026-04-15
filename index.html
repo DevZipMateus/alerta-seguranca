@@ -43,7 +43,7 @@
       --vermelho:    #E63946;
       --branco:      #FFFFFF;
       --cinza-bg:    #F8F9FA;
-      --cinza-txt:   #555555;
+      --cinza-txt:   #222222;
       --preto:       #1A1A1A;
       --sombra:      0 8px 32px rgba(0,0,0,0.10);
       --sombra-lg:   0 16px 48px rgba(0,0,0,0.15);
@@ -364,8 +364,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 6rem;
-      color: var(--azul);
+      padding: 40px;
+    }
+
+    .hero-visual-box img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     /* ══════════════════════════════════════
@@ -993,7 +998,7 @@
 
     <div class="hero-visual reveal">
       <div class="hero-visual-box">
-        <i class="fas fa-shield-alt"></i>
+        <img src="images/logo.png" alt="Alerta Segurança">
       </div>
     </div>
   </div>
