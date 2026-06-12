@@ -40,7 +40,7 @@
       --verde-dark:  #006B35;
       --azul:        #0066CC;
       --azul-dark:   #004B99;
-      --vermelho:    #E63946;
+      --vermelho:    #E52B2B;
       --branco:      #FFFFFF;
       --cinza-bg:    #F8F9FA;
       --cinza-txt:   #222222;
@@ -190,7 +190,7 @@
       z-index: 999;
     }
 
-    #navMenu.open { max-height: 380px; }
+    #navMenu.open { max-height: 420px; }
     #navMenu ul { list-style: none; padding: 12px 24px 20px; }
     #navMenu ul li a {
       display: flex;
@@ -227,18 +227,19 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(0,102,204,0.10) 100%), url('images/bg-1.jpg') center / cover no-repeat;
-      background-attachment: scroll, fixed;
+      background:
+        linear-gradient(135deg, rgba(7,21,37,0.84) 0%, rgba(13,35,71,0.78) 55%, rgba(7,29,58,0.86) 100%),
+        url('images/bg-hero.jpg') center / cover no-repeat;
     }
 
     #hero::before {
       content: '';
       position: absolute;
       top: -20%;
-      right: -5%;
-      width: min(500px, 60vw);
-      height: min(500px, 60vw);
-      background: radial-gradient(circle, rgba(0,166,81,0.08) 0%, transparent 70%);
+      right: -10%;
+      width: min(600px, 70vw);
+      height: min(600px, 70vw);
+      background: radial-gradient(circle, rgba(0,166,81,0.14) 0%, transparent 65%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -247,10 +248,10 @@
       content: '';
       position: absolute;
       bottom: -20%;
-      left: -5%;
-      width: min(400px, 50vw);
-      height: min(400px, 50vw);
-      background: radial-gradient(circle, rgba(0,102,204,0.06) 0%, transparent 70%);
+      left: -10%;
+      width: min(500px, 60vw);
+      height: min(500px, 60vw);
+      background: radial-gradient(circle, rgba(0,102,204,0.12) 0%, transparent 65%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -265,17 +266,39 @@
       padding: 60px 0;
     }
 
+    /* Pill badge acima do título */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,166,81,0.15);
+      border: 1px solid rgba(0,166,81,0.35);
+      color: #5de6a0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: var(--ff-titulo);
+      letter-spacing: 0.5px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
     .hero-content h1 {
       font-size: clamp(2.4rem, 5vw, 3.6rem);
-      color: var(--preto);
+      color: #ffffff;
       margin-bottom: 16px;
       letter-spacing: -0.5px;
     }
 
+    .hero-content h1 span {
+      -webkit-text-fill-color: var(--vermelho);
+      color: var(--vermelho);
+    }
+
     .hero-content h2 {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      color: var(--cinza-txt);
-      font-weight: 500;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.68);
+      font-weight: 400;
       margin-bottom: 32px;
       line-height: 1.8;
     }
@@ -283,26 +306,68 @@
     .hero-features {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-bottom: 40px;
+      gap: 12px;
+      margin-bottom: 32px;
     }
 
     .hero-feature {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
+      gap: 12px;
     }
 
     .hero-feature i {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       color: var(--verde);
-      margin-top: 2px;
+      margin-top: 3px;
       flex-shrink: 0;
     }
 
     .hero-feature p {
       font-size: 0.95rem;
-      color: var(--cinza-txt);
+      color: rgba(255,255,255,0.78);
+    }
+
+    /* Stats row */
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-bottom: 36px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .hero-stat {
+      flex: 1;
+      text-align: center;
+      padding: 14px 8px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-stat:last-child { border-right: none; }
+
+    .hero-stat .stat-num {
+      display: block;
+      font-family: var(--ff-titulo);
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--verde), #4ab3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat .stat-lbl {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .hero-btns {
@@ -332,55 +397,70 @@
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,102,204,0.35);
+      box-shadow: 0 8px 24px rgba(0,102,204,0.40);
     }
 
     .btn-outline {
       background: transparent;
-      color: var(--azul);
-      border-color: var(--azul);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.35);
     }
 
     .btn-outline:hover {
-      background: rgba(0,102,204,0.08);
-      border-color: var(--azul);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.70);
     }
 
     .hero-visual {
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 400px;
     }
 
     .hero-content {
-      background: rgba(255, 255, 255, 0.30);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 40px;
+      padding: 0;
     }
 
-    .hero-visual-box {
+    /* Grid de serviços (coluna direita) */
+    .hero-svc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
       width: 100%;
-      max-width: 480px;
-      aspect-ratio: 1;
-      background: rgba(255, 255, 255, 0.30);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 16px;
-      border: 2px solid rgba(0,102,204,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
     }
 
-    .hero-visual-box img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
+    .hero-svc-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 28px 22px;
+      transition: all var(--tr);
+    }
+
+    .hero-svc-card:hover {
+      background: rgba(0,166,81,0.12);
+      border-color: rgba(0,166,81,0.40);
+      transform: translateY(-4px);
+    }
+
+    .hero-svc-card .svc-icon {
+      font-size: 1.9rem;
+      margin-bottom: 14px;
+      color: var(--verde);
+    }
+
+    .hero-svc-card h4 {
+      font-family: var(--ff-titulo);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .hero-svc-card p {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.5;
     }
 
     /* ══════════════════════════════════════
@@ -399,8 +479,8 @@
 
     .sec-tag {
       display: inline-block;
-      background: rgba(0,166,81,0.12);
-      color: var(--verde);
+      background: rgba(229,43,43,0.10);
+      color: var(--vermelho);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.75rem;
@@ -430,8 +510,7 @@
        SOBRE
     ══════════════════════════════════════ */
     #sobre {
-      background: linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(0,102,204,0.08) 100%), url('images/bg-2.jpg') center / cover no-repeat;
-      background-attachment: scroll, fixed;
+      background: linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(0,102,204,0.08) 100%);
     }
 
     .sobre-grid {
@@ -505,10 +584,40 @@
       align-items: center;
       justify-content: center;
       min-height: 400px;
-      background: linear-gradient(135deg, rgba(0,166,81,0.08) 0%, rgba(0,102,204,0.08) 100%);
+      background: linear-gradient(135deg, rgba(0,166,81,0.07) 0%, rgba(0,102,204,0.07) 100%);
+      border: 1px solid rgba(0,102,204,0.12);
       border-radius: 16px;
-      font-size: 5rem;
+    }
+
+    .sobre-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 48px 40px;
+    }
+
+    .sobre-logo-wrap img {
+      max-width: 260px;
+      width: 100%;
+      filter: drop-shadow(0 8px 24px rgba(0,102,204,0.15));
+    }
+
+    .sobre-logo-divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--vermelho), var(--azul));
+      border-radius: 2px;
+    }
+
+    .sobre-logo-tagline {
+      font-size: 0.80rem;
+      font-weight: 700;
+      font-family: var(--ff-titulo);
       color: var(--azul);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
     }
 
     /* ══════════════════════════════════════
@@ -562,7 +671,7 @@
        DEPOIMENTOS
     ══════════════════════════════════════ */
     #depoimentos {
-      background: linear-gradient(135deg, rgba(248,249,250,0.92) 0%, rgba(248,249,250,0.85) 100%), url('images/bg-4.jpg') center / cover no-repeat;
+      background: linear-gradient(135deg, rgba(248,249,250,0.95) 0%, rgba(240,245,255,0.95) 100%), url('images/bg-4.jpg') center / cover no-repeat;
       background-attachment: scroll, fixed;
     }
 
@@ -574,45 +683,189 @@
 
     .depoimento-card {
       background: var(--branco);
-      border: 1px solid rgba(0,102,204,0.15);
-      border-radius: 12px;
-      overflow: hidden;
+      border: 1px solid rgba(0,102,204,0.10);
+      border-radius: 16px;
+      padding: 36px 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
       transition: all var(--tr);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .depoimento-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--vermelho), var(--azul));
+      border-radius: 16px 16px 0 0;
     }
 
     .depoimento-card:hover {
-      border-color: var(--verde);
-      box-shadow: 0 12px 36px rgba(0,166,81,0.12);
+      border-color: rgba(0,102,204,0.20);
+      box-shadow: 0 16px 48px rgba(0,102,204,0.10);
       transform: translateY(-6px);
     }
 
-    .depoimento-img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
+    .depoimento-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
     }
 
-    .depoimento-body {
-      padding: 28px;
+    .depoimento-quote-mark {
+      font-size: 5rem;
+      line-height: 0.7;
+      color: var(--azul);
+      opacity: 0.15;
+      font-family: Georgia, serif;
+      font-weight: 900;
+      user-select: none;
     }
 
-    .depoimento-title {
-      font-size: 1.1rem;
-      color: var(--preto);
-      font-weight: 700;
-      margin-bottom: 8px;
+    .depoimento-stars {
+      display: flex;
+      gap: 3px;
+      color: #f0a500;
+      font-size: 0.95rem;
     }
 
     .depoimento-text {
-      font-size: 0.90rem;
-      color: var(--cinza-txt);
-      line-height: 1.75;
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.8;
       font-style: italic;
+      flex: 1;
+    }
+
+    .depoimento-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .depoimento-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde), var(--azul));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-titulo);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--branco);
+      flex-shrink: 0;
+    }
+
+    .depoimento-author-name {
+      font-family: var(--ff-titulo);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--preto);
+      margin-bottom: 2px;
+    }
+
+    .depoimento-author-role {
+      font-size: 0.80rem;
+      color: #888;
     }
 
     /* ══════════════════════════════════════
-       CONTATO
+       CTA BANNER
+    ══════════════════════════════════════ */
+    #cta {
+      background: linear-gradient(135deg, #B01818 0%, var(--azul-dark) 100%);
+      padding: 80px 0;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cta-text h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .cta-text h2 span {
+      color: rgba(255,255,255,0.70);
+    }
+
+    .cta-text p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-wpp {
+      background: var(--verde);
+      color: #fff;
+      padding: 15px 32px;
+      border-radius: 8px;
+      font-family: var(--ff-titulo);
+      font-weight: 700;
+      font-size: 0.97rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all var(--tr);
+      border: 2px solid transparent;
+    }
+
+    .btn-cta-wpp:hover {
+      background: #00923f;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .btn-cta-outline {
+      background: transparent;
+      color: #fff;
+      padding: 15px 32px;
+      border-radius: 8px;
+      font-family: var(--ff-titulo);
+      font-weight: 700;
+      font-size: 0.97rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid rgba(255,255,255,0.45);
+      transition: all var(--tr);
+    }
+
+    .btn-cta-outline:hover {
+      background: rgba(255,255,255,0.10);
+      border-color: #fff;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .cta-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .cta-actions { justify-content: center; }
+    }
+
+    /* ══════════════════════════════════════
+       CONTATO (sem formulário)
     ══════════════════════════════════════ */
     #contato {
       background: linear-gradient(135deg, rgba(0,75,153,0.88) 0%, rgba(0,107,53,0.88) 100%), url('images/bg-5.jpg') center / cover no-repeat;
@@ -637,123 +890,119 @@
       color: rgba(255,255,255,0.75);
     }
 
-    .contato-grid {
-      display: flex;
-      flex-direction: row;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .contato-items {
-      display: flex;
-      flex-direction: column;
+    .contato-cards {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
       gap: 24px;
+      margin-bottom: 48px;
     }
 
-    .contato-item {
-      display: flex;
-      gap: 16px;
-    }
+    .contato-card { grid-column: span 2; }
+    .contato-card:nth-child(4) { grid-column: 2 / span 2; }
+    .contato-card:nth-child(5) { grid-column: 4 / span 2; }
 
-    .contato-item i {
-      font-size: 1.5rem;
-      color: rgba(255,255,255,0.90);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .contato-item-text h4 {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.80);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .contato-item-text p {
-      font-size: 1rem;
-      color: var(--branco);
-    }
-
-    .contato-item-text a {
-      color: var(--branco);
-      font-weight: 600;
-      transition: opacity var(--tr);
-    }
-
-    .contato-item-text a:hover {
-      opacity: 0.80;
-    }
-
-    .contato-form {
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
+    .contato-card {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+      transition: all var(--tr);
+      backdrop-filter: blur(8px);
+    }
+
+    .contato-card:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.20);
+    }
+
+    .contato-card-icon {
+      width: 52px;
+      height: 52px;
       border-radius: 12px;
-      padding: 32px 28px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--branco);
+      margin: 0 auto 16px;
     }
 
-    .form-group {
-      margin-bottom: 18px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.90rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.90);
+    .contato-card h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.70);
+      text-transform: uppercase;
+      letter-spacing: 1px;
       margin-bottom: 6px;
     }
 
-    .form-group input,
-    .form-group textarea {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      padding: 11px 14px;
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: 6px;
-      background: rgba(255,255,255,0.06);
+    .contato-card p,
+    .contato-card a {
+      font-size: 0.95rem;
       color: var(--branco);
-      font-family: var(--ff-corpo);
-      font-size: 16px; /* evita zoom automático iOS */
-      transition: all var(--tr);
+      font-weight: 600;
+      word-break: break-word;
     }
 
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255,255,255,0.50);
+    .contato-card a:hover { opacity: 0.85; }
+
+    .contato-card--address p {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
     }
 
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,255,255,0.40);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .form-group .btn {
-      width: 100%;
-      box-sizing: border-box;
+    .contato-cta {
+      display: flex;
+      gap: 16px;
       justify-content: center;
-      background: var(--branco);
-      color: var(--azul-dark);
+      flex-wrap: wrap;
     }
 
-    .form-group .btn:hover {
-      background: rgba(255,255,255,0.90);
+    .btn-wpp {
+      background: var(--verde);
+      color: var(--branco);
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-family: var(--ff-titulo);
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all var(--tr);
+      border: 2px solid transparent;
+    }
+
+    .btn-wpp:hover {
+      background: #00923f;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,166,81,0.40);
+    }
+
+    .btn-email {
+      background: transparent;
+      color: var(--branco);
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-family: var(--ff-titulo);
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all var(--tr);
+      border: 2px solid rgba(255,255,255,0.50);
+    }
+
+    .btn-email:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--branco);
+      transform: translateY(-3px);
     }
 
     /* ══════════════════════════════════════
@@ -763,7 +1012,7 @@
       background: var(--preto);
       color: var(--branco);
       padding: 52px 0 28px;
-      border-top: 1px solid rgba(0,166,81,0.20);
+      border-top: 3px solid var(--vermelho);
     }
 
     .footer-inner {
@@ -771,6 +1020,19 @@
       grid-template-columns: 1.5fr 1fr 1fr;
       gap: 40px;
       margin-bottom: 36px;
+    }
+
+    .footer-logo-link {
+      display: inline-flex;
+      margin-bottom: 16px;
+      transition: opacity var(--tr);
+    }
+
+    .footer-logo-link:hover { opacity: 0.85; }
+
+    .footer-logo-img {
+      height: 42px;
+      width: auto;
     }
 
     .footer-brand p {
@@ -813,6 +1075,35 @@
       text-align: center;
       font-size: 0.80rem;
       color: rgba(255,255,255,0.40);
+    }
+
+    /* MonteSite badge */
+    .montesite-badge {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .montesite-badge a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color var(--tr);
+      font-family: var(--ff-corpo);
+    }
+
+    .montesite-badge a:hover { color: rgba(255,255,255,0.65); }
+
+    .montesite-badge a::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, var(--verde), var(--azul));
+      border-radius: 3px;
+      flex-shrink: 0;
     }
 
     /* ══════════════════════════════════════
@@ -870,18 +1161,7 @@
        EFEITOS & ANIMAÇÕES
     ══════════════════════════════════════ */
 
-    /* Float suave — logo hero */
-    @keyframes heroFloat {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-14px); }
-    }
-    .hero-visual-box {
-      animation: heroFloat 4s ease-in-out infinite;
-      overflow: hidden;
-    }
 
-
-    /* Pulsing ring — botão WhatsApp */
     @keyframes waPulse {
       0%   { box-shadow: 0 0 0 0   rgba(0,166,81,0.55), 0 4px 16px rgba(0,102,204,0.30); }
       70%  { box-shadow: 0 0 0 14px rgba(0,166,81,0),   0 4px 16px rgba(0,102,204,0.30); }
@@ -889,7 +1169,6 @@
     }
     .wa-float { animation: waPulse 2.2s ease-out infinite; }
 
-    /* Ponto pulsante — sec-tag */
     @keyframes dotPulse {
       0%, 100% { transform: scale(1);   opacity: 1; }
       50%      { transform: scale(1.6); opacity: 0.5; }
@@ -898,14 +1177,13 @@
       content: '';
       display: inline-block;
       width: 6px; height: 6px;
-      background: var(--verde);
+      background: var(--vermelho);
       border-radius: 50%;
       margin-right: 7px;
       vertical-align: middle;
       animation: dotPulse 1.6s ease-in-out infinite;
     }
 
-    /* Ícone bounce — cards de serviço */
     @keyframes iconBounce {
       0%, 100% { transform: translateY(0); }
       35%      { transform: translateY(-10px); }
@@ -916,18 +1194,11 @@
       color: var(--verde);
     }
 
-    /* Rotação lenta — ícone sobre-visual */
     @keyframes slowSpin {
       from { transform: rotate(0deg); }
       to   { transform: rotate(360deg); }
     }
-    .sobre-visual i { animation: slowSpin 10s linear infinite; }
 
-    /* Zoom — imagem depoimento */
-    .depoimento-img { transition: transform 0.45s ease; }
-    .depoimento-card:hover .depoimento-img { transform: scale(1.05); }
-
-    /* Shimmer — botão primário */
     @keyframes shimmer {
       0%   { background-position: -200% center; }
       100% { background-position:  200% center; }
@@ -938,102 +1209,69 @@
       animation: shimmer 3s linear infinite;
     }
 
-    /* Glow ao revelar — hero content */
-    .hero-content.visible {
-      box-shadow: 0 8px 40px rgba(0,102,204,0.10);
-    }
 
     /* ══════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════ */
 
-    /* ── Widescreen / 4K (≥ 1600px) ── */
     @media (min-width: 1600px) {
       .container { max-width: 1400px; }
       .hero-content h1 { font-size: 4rem; }
-      .hero-visual-box { max-width: 560px; }
+      .hero-visual-box { max-width: 420px; }
     }
 
-    /* ── Full HD / Large Desktop (1280px – 1599px) ── */
     @media (min-width: 1280px) and (max-width: 1599px) {
-      .hero-visual-box { max-width: 440px; }
+      .hero-visual-box { max-width: 360px; }
     }
 
-    /* ── Notebook / Small Desktop (1024px – 1279px) ── */
     @media (min-width: 1024px) and (max-width: 1279px) {
       .hero-inner { gap: 40px; padding: 48px 0; }
-      .hero-content { padding: 32px; }
-      .hero-visual-box { max-width: 360px; }
       .servicos-grid { gap: 20px; }
       .sobre-grid { gap: 40px; }
+      .contato-cards { grid-template-columns: repeat(3, 1fr); }
     }
 
-    /* ── Tablet Landscape (769px – 1023px) ── */
     @media (max-width: 1023px) {
       :root { --header-h: 68px; }
 
-      /* Desabilitar parallax */
       #hero, #sobre, #servicos, #depoimentos, #contato {
         background-attachment: scroll, scroll !important;
       }
 
-      /* Desabilitar backdrop-filter para evitar sobreposição em mobile */
-      .hero-content,
-      .hero-visual-box,
       #sobre .sec-header,
-      .sobre-content,
-      .contato-form {
+      .sobre-content {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
       }
 
-      /* Nav: esconder links, mostrar hambúrguer */
       .nav-links { display: none; }
       .hamburger { display: flex; }
 
-      /* Hero */
       .hero-inner {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 36px;
         padding: 48px 0;
-      }
-
-      .hero-content { padding: 32px; }
-
-      .hero-visual { min-height: auto; }
-
-      .hero-visual-box {
-        max-width: 320px;
-        aspect-ratio: auto;
-        padding: 32px;
-        margin: 0 auto;
       }
 
       .hero-btns { flex-wrap: wrap; gap: 12px; }
 
-      /* Sobre */
       .sobre-grid { grid-template-columns: 1fr; gap: 28px; }
       .sobre-items { grid-template-columns: 1fr 1fr; }
       .sobre-visual { min-height: 200px; font-size: 4rem; }
       #sobre .sec-header, .sobre-content { padding: 28px; }
 
-      /* Serviços */
       .servicos-grid { grid-template-columns: repeat(2, 1fr); }
 
-      /* Depoimentos */
       .depoimentos-grid { grid-template-columns: 1fr; }
-      .depoimento-img { height: 260px; }
 
-      /* Contato */
-      .contato-grid { flex-direction: column; gap: 32px; }
-      .contato-items, .contato-form { width: 100%; }
-      .contato-form { padding: clamp(16px, 4vw, 28px); }
+      .contato-cards { grid-template-columns: repeat(2, 1fr); }
+      .contato-card,
+      .contato-card:nth-child(4),
+      .contato-card:nth-child(5) { grid-column: span 1; }
 
-      /* Footer */
       .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
 
-    /* ── Tablet Pequeno / Mobile Grande (481px – 768px) ── */
     @media (max-width: 768px) {
       :root { --header-h: 64px; }
 
@@ -1043,44 +1281,34 @@
       .sec-header h2 { font-size: 1.8rem; }
       .sec-header p { font-size: 1rem; }
 
-      /* Hero */
       .hero-inner { gap: 24px; padding: 40px 0; }
-      .hero-content { padding: 24px; }
       .hero-content h1 { font-size: 2.1rem; }
       .hero-content h2 { font-size: 1rem; }
 
-      .hero-visual-box {
-        max-width: 260px;
-        padding: 24px;
-        margin: 0 auto;
-      }
+      .hero-svc-grid { gap: 12px; }
+      .hero-svc-card { padding: 20px 16px; }
+      .hero-svc-card .svc-icon { font-size: 1.5rem; margin-bottom: 10px; }
 
       .hero-btns { flex-direction: column; }
       .hero-btns .btn { width: 100%; justify-content: center; }
 
-      /* Sobre */
       .sobre-items { grid-template-columns: 1fr; }
       .sobre-visual { min-height: 160px; font-size: 3.5rem; }
       #sobre .sec-header, .sobre-content { padding: 20px; }
 
-      /* Serviços */
       .servicos-grid { grid-template-columns: 1fr; }
       .servico-card { padding: 28px 22px; }
 
-      /* Depoimentos */
-      .depoimento-img { height: 220px; }
-      .depoimento-body { padding: 20px; }
+      .depoimento-card { padding: 28px 22px 22px; }
 
-      /* Contato */
-      .contato-grid { flex-direction: column; gap: 28px; }
-      .contato-items, .contato-form { width: 100%; }
-      .contato-form { padding: clamp(14px, 4vw, 24px); }
+      .contato-cards { grid-template-columns: 1fr; }
+      .contato-card,
+      .contato-card:nth-child(4),
+      .contato-card:nth-child(5) { grid-column: span 1; }
 
-      /* Footer */
       .footer-inner { grid-template-columns: 1fr; gap: 28px; }
     }
 
-    /* ── Mobile Médio (361px – 480px) ── */
     @media (max-width: 480px) {
       :root { --header-h: 60px; }
 
@@ -1090,41 +1318,28 @@
       .sec-header h2 { font-size: 1.55rem; }
       .sec-header p { font-size: 0.93rem; }
 
-      /* Hero */
       .hero-inner { padding: 32px 0; }
-      .hero-content { padding: 18px; }
       .hero-content h1 { font-size: 1.85rem; }
       .hero-content h2 { font-size: 0.93rem; }
       .hero-features { gap: 10px; }
       .hero-feature p { font-size: 0.87rem; }
 
-      .hero-visual-box {
-        max-width: 220px;
-        padding: 20px;
-        margin: 0 auto;
-      }
+      .hero-svc-grid { display: none; }
 
-      /* Sobre */
+      .hero-stats { flex-direction: row; }
+      .hero-stat .stat-num { font-size: 1.25rem; }
+
       #sobre .sec-header, .sobre-content { padding: 16px; }
       .sobre-item { padding: 18px; }
 
-      /* Serviços */
       .servico-card { padding: 24px 16px; }
 
-      /* Depoimentos */
-      .depoimento-img { height: 190px; }
-      .depoimento-body { padding: 16px; }
+      .depoimento-card { padding: 24px 18px 18px; }
 
-      /* Contato */
-      .contato-form { padding: clamp(12px, 3.5vw, 20px); width: 100%; }
-      .contato-items { gap: 18px; }
-
-      /* WhatsApp float */
       .wa-float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
       .wa-float i { font-size: 1.4rem; }
     }
 
-    /* ── Mobile Pequeno (≤ 360px) ── */
     @media (max-width: 360px) {
       :root { --header-h: 56px; }
 
@@ -1134,24 +1349,12 @@
       .sec-header h2 { font-size: 1.4rem; }
 
       .hero-inner { padding: 28px 0; }
-      .hero-content { padding: 14px; }
       .hero-content h1 { font-size: 1.6rem; }
       .hero-content h2 { font-size: 0.88rem; }
-
-      .hero-visual-box {
-        max-width: 190px;
-        padding: 16px;
-        margin: 0 auto;
-      }
 
       #sobre .sec-header, .sobre-content { padding: 14px; }
 
       .btn { padding: 12px 18px; font-size: 0.87rem; }
-
-      .depoimento-img { height: 160px; }
-      .depoimento-body { padding: 14px; }
-
-      .contato-form { padding: 14px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1170,6 +1373,7 @@
 
     <nav role="navigation" aria-label="Menu principal">
       <ul class="nav-links">
+        <li><a href="#hero">Início</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
@@ -1191,6 +1395,7 @@
 <!-- MENU MOBILE -->
 <nav id="navMenu" aria-label="Menu mobile" aria-hidden="true">
   <ul>
+    <li><a href="#hero" onclick="closeMenu()">Início</a></li>
     <li><a href="#sobre" onclick="closeMenu()">Sobre</a></li>
     <li><a href="#servicos" onclick="closeMenu()">Serviços</a></li>
     <li><a href="#depoimentos" onclick="closeMenu()">Depoimentos</a></li>
@@ -1207,7 +1412,11 @@
 <section id="hero" aria-label="Apresentação">
   <div class="container hero-inner">
     <div class="hero-content reveal reveal-left">
-      <h1>Alerta Segurança</h1>
+      <div class="hero-badge">
+        Referência em segurança eletrônica em Florianópolis
+      </div>
+
+      <h1><span>Alerta</span> Segurança</h1>
       <h2>Padrão de excelência na segurança eletrônica para residências e condomínios em Florianópolis.</h2>
 
       <div class="hero-features">
@@ -1229,6 +1438,21 @@
         </div>
       </div>
 
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-lbl">Instalações</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-lbl">Anos de exp.</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Satisfação</span>
+        </div>
+      </div>
+
       <div class="hero-btns">
         <a href="#servicos" class="btn btn-primary">
           <i class="fas fa-arrow-right"></i> Conheça os serviços
@@ -1240,8 +1464,27 @@
     </div>
 
     <div class="hero-visual reveal reveal-right">
-      <div class="hero-visual-box">
-        <img src="images/logo.png" alt="Alerta Segurança">
+      <div class="hero-svc-grid">
+        <div class="hero-svc-card">
+          <div class="svc-icon"><i class="fas fa-video"></i></div>
+          <h4>CFTV</h4>
+          <p>Câmeras de alta qualidade e cobertura eficiente</p>
+        </div>
+        <div class="hero-svc-card">
+          <div class="svc-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Alarmes</h4>
+          <p>Proteção perimetral com resposta rápida</p>
+        </div>
+        <div class="hero-svc-card">
+          <div class="svc-icon"><i class="fas fa-door-open"></i></div>
+          <h4>Controle de acesso</h4>
+          <p>Gestão segura de pessoas e veículos</p>
+        </div>
+        <div class="hero-svc-card">
+          <div class="svc-icon"><i class="fas fa-user-check"></i></div>
+          <h4>Portaria autônoma</h4>
+          <p>Redução de custos operacionais</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1283,7 +1526,11 @@
       </div>
 
       <div class="sobre-visual reveal reveal-right">
-        <i class="fas fa-cogs"></i>
+        <div class="sobre-logo-wrap">
+          <img src="images/logo.png" alt="Alerta Segurança">
+          <div class="sobre-logo-divider"></div>
+          <span class="sobre-logo-tagline">Florianópolis · Santa Catarina</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1343,26 +1590,70 @@
   <div class="container">
     <div class="sec-header reveal">
       <span class="sec-tag">Casos de sucesso</span>
-      <h2 id="depoimentos-titulo">Veja nossos <span>depoimentos</span></h2>
+      <h2 id="depoimentos-titulo">O que dizem nossos <span>clientes</span></h2>
       <p>Resultados reais de clientes que confiam em nossas soluções.</p>
     </div>
 
     <div class="depoimentos-grid">
       <div class="depoimento-card reveal">
-        <img src="images/depoimento-1.jpg" alt="Depoimento 1 — Sistema de segurança instalado" class="depoimento-img">
-        <div class="depoimento-body">
-          <div class="depoimento-title">Sistema integrado de qualidade</div>
-          <p class="depoimento-text">"A Alerta Segurança instalou um sistema completo de CFTV e controle de acesso que superou nossas expectativas. Profissionalismo e qualidade em cada detalhe."</p>
+        <div class="depoimento-top">
+          <div class="depoimento-quote-mark">&ldquo;</div>
+          <div class="depoimento-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <p class="depoimento-text">A Alerta Segurança instalou um sistema completo de CFTV e controle de acesso que superou nossas expectativas. Profissionalismo e qualidade em cada detalhe.</p>
+        <div class="depoimento-author">
+          <div class="depoimento-avatar">CM</div>
+          <div>
+            <div class="depoimento-author-name">Carlos Mendes</div>
+            <div class="depoimento-author-role">Síndico · Residencial Beira Mar</div>
+          </div>
         </div>
       </div>
 
       <div class="depoimento-card reveal">
-        <img src="images/depoimento-2.jpg" alt="Depoimento 2 — Manutenção profissional realizada" class="depoimento-img">
-        <div class="depoimento-body">
-          <div class="depoimento-title">Suporte técnico exemplar</div>
-          <p class="depoimento-text">"A manutenção condominial oferecida é ágil e confiável. Resolvem os problemas com eficiência e sempre com atendimento cortês. Excelente trabalho!"</p>
+        <div class="depoimento-top">
+          <div class="depoimento-quote-mark">&ldquo;</div>
+          <div class="depoimento-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <p class="depoimento-text">A manutenção condominial oferecida é ágil e confiável. Resolvem os problemas com eficiência e sempre com atendimento cortês. Excelente trabalho!</p>
+        <div class="depoimento-author">
+          <div class="depoimento-avatar">MS</div>
+          <div>
+            <div class="depoimento-author-name">Maria Santos</div>
+            <div class="depoimento-author-role">Administradora · Condomínio Solar</div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" aria-label="Chamada para ação">
+  <div class="container cta-inner reveal">
+    <div class="cta-text">
+      <h2>Pronto para proteger o que <span>importa?</span></h2>
+      <p>Entre em contato agora e receba um orçamento gratuito e sem compromisso. Nossa equipe está pronta para atender você.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://wa.me/5548996928924" target="_blank" rel="noopener noreferrer" class="btn-cta-wpp">
+        <i class="fab fa-whatsapp"></i> Solicitar orçamento
+      </a>
+      <a href="#contato" class="btn-cta-outline">
+        <i class="fas fa-envelope"></i> Fale conosco
+      </a>
     </div>
   </div>
 </section>
@@ -1376,76 +1667,46 @@
       <p>Solicite um orçamento ou tire suas dúvidas. Estamos prontos para ajudar.</p>
     </div>
 
-    <div class="contato-grid">
-      <div class="contato-items reveal">
-        <div class="contato-item">
-          <i class="fab fa-whatsapp"></i>
-          <div class="contato-item-text">
-            <h4>WhatsApp</h4>
-            <p><a href="https://wa.me/5548996928924" target="_blank" rel="noopener noreferrer">(48) 96928-924</a></p>
-          </div>
-        </div>
-
-        <div class="contato-item">
-          <i class="fas fa-envelope"></i>
-          <div class="contato-item-text">
-            <h4>E-mail</h4>
-            <p><a href="mailto:alertasistemassegurancafloripa@gmail.com">alertasistemassegurancafloripa@gmail.com</a></p>
-          </div>
-        </div>
-
-        <div class="contato-item">
-          <i class="fab fa-instagram"></i>
-          <div class="contato-item-text">
-            <h4>Instagram</h4>
-            <p><a href="https://www.instagram.com/alertasegurancafloripa/" target="_blank" rel="noopener noreferrer">@alertasegurancafloripa</a></p>
-          </div>
-        </div>
-
-        <div class="contato-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <div class="contato-item-text">
-            <h4>Endereço</h4>
-            <p>Rua Pedro Fernandes, 472<br>Carianos, Florianópolis - SC<br>CEP 88047-624</p>
-          </div>
-        </div>
-
-        <div class="contato-item">
-          <i class="fas fa-clock"></i>
-          <div class="contato-item-text">
-            <h4>Horário</h4>
-            <p>Segunda a sexta: 8h às 18h</p>
-          </div>
-        </div>
+    <div class="contato-cards reveal">
+      <div class="contato-card">
+        <div class="contato-card-icon"><i class="fab fa-whatsapp"></i></div>
+        <h4>WhatsApp</h4>
+        <p><a href="https://wa.me/5548996928924" target="_blank" rel="noopener noreferrer">(48) 96928-924</a></p>
       </div>
 
-      <form class="contato-form reveal">
-        <div class="form-group">
-          <label for="nome">Nome completo</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-        </div>
+      <div class="contato-card">
+        <div class="contato-card-icon"><i class="fas fa-envelope"></i></div>
+        <h4>E-mail</h4>
+        <p><a href="mailto:alertasistemassegurancafloripa@gmail.com" style="font-size:0.82rem;">alertasistemassegurancafloripa@gmail.com</a></p>
+      </div>
 
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-        </div>
+      <div class="contato-card">
+        <div class="contato-card-icon"><i class="fab fa-instagram"></i></div>
+        <h4>Instagram</h4>
+        <p><a href="https://www.instagram.com/alertasegurancafloripa/" target="_blank" rel="noopener noreferrer">@alertasegurancafloripa</a></p>
+      </div>
 
-        <div class="form-group">
-          <label for="telefone">Telefone/WhatsApp</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="(48) 99999-9999" required>
-        </div>
+      <div class="contato-card contato-card--address">
+        <div class="contato-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h4>Endereço</h4>
+        <p>Rua Pedro Fernandes, 472<br>Carianos, Florianópolis – SC<br>CEP 88047-624</p>
+      </div>
 
-        <div class="form-group">
-          <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" placeholder="Descreva sua necessidade..." required></textarea>
-        </div>
+      <div class="contato-card">
+        <div class="contato-card-icon"><i class="fas fa-clock"></i></div>
+        <h4>Horário</h4>
+        <p>Seg. a sex.: 8h às 18h</p>
+      </div>
 
-        <div class="form-group">
-          <button type="submit" class="btn" style="background: var(--branco); color: var(--azul-dark);">
-            Enviar mensagem
-          </button>
-        </div>
-      </form>
+    </div>
+
+    <div class="contato-cta reveal">
+      <a href="https://wa.me/5548996928924" target="_blank" rel="noopener noreferrer" class="btn-wpp">
+        <i class="fab fa-whatsapp"></i> Falar pelo WhatsApp
+      </a>
+      <a href="mailto:alertasistemassegurancafloripa@gmail.com" class="btn-email">
+        <i class="fas fa-envelope"></i> Enviar e-mail
+      </a>
     </div>
   </div>
 </section>
@@ -1455,7 +1716,9 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--verde) 0%, var(--azul) 100%); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--branco); font-weight: 800; font-size: 1.1rem; margin-bottom: 12px;">🔒</div>
+        <a href="#hero" class="footer-logo-link" aria-label="Alerta Segurança — início">
+          <img src="images/logo.png" alt="Logo Alerta Segurança" class="footer-logo-img">
+        </a>
         <p>Soluções em segurança eletrônica com excelência técnica, confiabilidade e inovação para residências e condomínios em Florianópolis.</p>
       </div>
 
@@ -1476,18 +1739,19 @@
           <li><a href="https://wa.me/5548996928924" target="_blank" rel="noopener noreferrer">(48) 96928-924</a></li>
           <li><a href="mailto:alertasistemassegurancafloripa@gmail.com">E-mail</a></li>
           <li><a href="https://www.instagram.com/alertasegurancafloripa/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><strong>CNPJ:</strong> 19.595.828/0001-68</li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bar">
-      © 2026 Alerta Sistemas de Segurança. Todos os direitos reservados · CNPJ 19.595.828/0001-68
+      © 2026 Alerta Sistemas de Segurança. Todos os direitos reservados.
     </div>
 
-    <!-- Rodapé MonteSite -->
-    <div id="montesite-footer-badge"></div>
-    <script src="https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe"></script>
+    <div class="montesite-badge">
+      <a href="https://montesite.com.br" target="_blank" rel="noopener noreferrer">
+        Desenvolvido por MonteSite
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -1497,7 +1761,6 @@
 </a>
 
 <script>
-  // Menu mobile
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('navMenu');
 
@@ -1519,13 +1782,11 @@
     if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) closeMenu();
   });
 
-  // Header scroll
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 30);
   }, { passive: true });
 
-  // Reveal on scroll (normal + direcional)
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1537,52 +1798,17 @@
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
 
-  // Stagger — cards de serviço
   document.querySelectorAll('.servicos-grid .reveal').forEach((el, i) => {
     el.style.transitionDelay = (i % 3 * 0.13) + 's';
   });
 
-  // Stagger — sobre-items
   document.querySelectorAll('.sobre-items .reveal').forEach((el, i) => {
     el.style.transitionDelay = (i * 0.12) + 's';
   });
 
-  // Stagger — depoimentos
   document.querySelectorAll('.depoimentos-grid .reveal').forEach((el, i) => {
     el.style.transitionDelay = (i * 0.15) + 's';
   });
-
-  // Stagger — contato items (observer próprio para estilos inline)
-  const contatoObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateX(0)';
-        contatoObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.10 });
-
-  document.querySelectorAll('.contato-items .contato-item').forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateX(-20px)';
-    el.style.transition = `opacity 0.5s ease ${i * 0.10}s, transform 0.5s ease ${i * 0.10}s`;
-    contatoObs.observe(el);
-  });
-
-  // Form submission
-  const form = document.querySelector('.contato-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nome = document.getElementById('nome').value;
-      const mensagem = document.getElementById('mensagem').value;
-      const msg = `Olá, meu nome é ${nome}. ${mensagem}`;
-      const wa = `https://wa.me/5548996928924?text=${encodeURIComponent(msg)}`;
-      window.open(wa, '_blank');
-      form.reset();
-    });
-  }
 </script>
 
 </body>
